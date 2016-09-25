@@ -9,6 +9,10 @@ def DoGame():
 		randomNumber = randint(smallestNumber, biggestNumber)
 		print(randomNumber)
 		inputStr = input("Hoger, lager of correct?(H/L/C)")
+		
+		if len(inputStr) > 1 or len(inputStr) <= 0:
+			return 0
+		
 		if "h" in inputStr.lower():
 			smallestNumber = randomNumber
 		elif "l" in inputStr.lower():
@@ -16,17 +20,16 @@ def DoGame():
 		elif "c" in inputStr.lower():
 			return 1
 			
-			
 		if smallestNumber >= biggestNumber:
 			return 0
 		
 while True:
 	if DoGame() == 0:
-		print("Lekker aan het cheaten?")
+		print("Waar ben je nou mee bezig? Zo kunnen wij niet verder, jongeman.")
 	else:
 		print("Ik win altijd")
 		
 	inputStr = input("Nog een potje?(Y/N)")
 	
-	if "N" in inputStr:
+	if "n" in inputStr.lower():
 		quit();
